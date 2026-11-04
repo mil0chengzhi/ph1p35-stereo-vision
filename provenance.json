@@ -1,0 +1,457 @@
+{
+  "snapshot_date": "2026-11-04",
+  "files": [
+    {
+      "file": "fpga/native-depth/rtl/hd_sgm1_matcher.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_sgm1_matcher.v",
+      "source_sha256": "e537c81abdb9fc5ff52409c5d2a5286b8404364ccef80cf5896fe236610192c3",
+      "sha256": "901296be64a2cd5a82812708c9ee9edfa89ee83a6e64ef63004010f7cd057a4e",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/census5x5_window.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/census5x5_window.v",
+      "source_sha256": "18377155b28d1c0c54464103f285d237153a0a6e06c31d0700b3ac03dbadc6da",
+      "sha256": "965ce7fb3a5d6544d5ff87b290f2d023490dcc5510badfecc591f2002ecaaa6d",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/census_window_cache.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/census_window_cache.v",
+      "source_sha256": "9c7935113be886eac4be974d827fb0325e52a93d9358aae70ed3e5196b6896ef",
+      "sha256": "d9aed20da9fc57ecf2789212aecefdcddc76a6422acad53a273d8759e2e9fa6b",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_cached_texels.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_cached_texels.v",
+      "source_sha256": "a2fc6bdcc1d0b21734859cf28eb8ed99aba7fcc0b08d16a1324f297bc4b904d8",
+      "sha256": "f898c2fb89c8cccce01df1721925a11690fe957b2f2bf59ba840d89267738bf4",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_capture_meter.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_capture_meter.v",
+      "source_sha256": "0eb84e9a39e2f75db97bea9db18961723d0b2716e88ce94bd7452397569e738a",
+      "sha256": "3d2adbadefd3a01edea64ebe3301330f49d70aaf8de3282f67708e17a0c51f6e",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_depth_export.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_depth_export.v",
+      "source_sha256": "46d5a023cd3f17e36864ad4515996935dcee88e4c5160577b9ea16f08461b179",
+      "sha256": "8b09bd38d2fc6de006f7ee762b92f0f89a253139c1a80fd5a70e9e868375f6eb",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_model_sender.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_model_sender.v",
+      "source_sha256": "7631c835ec8d8a1369ac3c33fa7c4c05abc7ab08d5b7b2c82c5440ee20e2bb75",
+      "sha256": "a74ce95da1a306c18405af03216fe927d38a2232291022c9d414ac87da1474e9",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_link.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_link.v",
+      "source_sha256": "76ee1f23736b31a01e575567d2234ccf17792aeaaf8a8effae4944f4cf356b48",
+      "sha256": "ffc429c00d4eace486bdf351e3a7647c3dc98b3b177d0ee05e7f0340b183bc3d",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_ddr_arbiter.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_ddr_arbiter.v",
+      "source_sha256": "86069446bf85bcf9ebd7bd2fb29c300f03a9b9dcce455d59b35d94ec26a88534",
+      "sha256": "86069446bf85bcf9ebd7bd2fb29c300f03a9b9dcce455d59b35d94ec26a88534",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_packet_mac.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_packet_mac.v",
+      "source_sha256": "7752e73e34c6eedc5c204e7e81b8834a05ddc4a1f4a96d87deb3772086b3440c",
+      "sha256": "fb22ff9de9e9bc48fb1d2fcad2fa256a4532d682a3ba8b47406ffbe0a762de91",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/hd_wire_arbiter.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/hd_wire_arbiter.v",
+      "source_sha256": "4ce0813b477b5e052ac6f042e29184744600d52e2ad8781826cbdd3ab554e440",
+      "sha256": "9177cca69cee3499e0b110ae9e6131214718cbd5e6f027e28dd312e7c2ebd237",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/cdc_status_snapshot.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/cdc_status_snapshot.v",
+      "source_sha256": "eabba94a4357e669e7fcb3b723e02c56afda1f3db0da7be7db43fe5a1410fb8b",
+      "sha256": "afcbc61e6eeb4da0071aad6b4c73b9e670fb31e0697ba6fc9112eafca7388af6",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-depth/rtl/stereo_dense_engine.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V94_2_Stereo/project/rtl/stereo_dense_engine.v",
+      "source_sha256": "a6a1643493bcb79dc695b3c957230b1548e28400aa87d85b4f437bb67f46482d",
+      "sha256": "af0619d5456193ee1e8fa79c9a3e274b231143d6053a27a1b362a0e72fc1f750",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_cloud_projector.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_cloud_projector.v",
+      "source_sha256": "9568276c22ab67c5bed867b2e5736210354ca310568587e254dfe4293f40e1fa",
+      "sha256": "b2f116ca96a5df7d1bede9b2f3eb59e12f9a3349f8531b39abd1ae6738fea69c",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_model_reader.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_model_reader.v",
+      "source_sha256": "e7a614fab2f2c6bcc903dbde4a0e248f9f1560b261d2963a159762c2385a257a",
+      "sha256": "463455f7e6c08a5ce6885c456a495081363ae2c802c7beca22c2901510867ed1",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_model_receiver.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_model_receiver.v",
+      "source_sha256": "71093f0d8007fed35643ecbfb9c90a16c39aeed0931d82699f9b7f365b452b09",
+      "sha256": "961d167b0fc6b9ad0029d17125e7fb1cc211150d11f943c10c14c74cdbfb8615",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_render_system.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_render_system.v",
+      "source_sha256": "1f17c540fa771143ddf47fcdf2094223f05b932b723947d745783e3f979b5952",
+      "sha256": "0a4b2787cf07897fc4c1a92f258ecde08b0f910997220fcafaa2e34ede1d6d8c",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_display_line_buffer.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_display_line_buffer.v",
+      "source_sha256": "522feb7ebf29e3fa8cacb6a4c7f6330d4e31dcac72905814e7a0c5f5522c5785",
+      "sha256": "4ddead3fe88e1ebbfbc2943a9c273c1e38bf834ecd53ae5f5714e7a1ab55a227",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_scan_reader.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_scan_reader.v",
+      "source_sha256": "9787b80799aa3c29612df4371fa712313dc1a185e3b7311242fe2dacb7520f91",
+      "sha256": "8b6fe3aa60b67af512342f28e49e51c225df3ba94c8229a9c578131f72c64345",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_scanout_completion.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_scanout_completion.v",
+      "source_sha256": "ccac81507c5199e4cea790bff6cb2f2a8ea302c7d38dcb600e4ab23a7d70f9c4",
+      "sha256": "41a6e936ff071770cb8936747110e13712e26f0a9415908942a7657ccb2bdb4a",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_tile_painter.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_tile_painter.v",
+      "source_sha256": "937f81ab315be3fd4c0f9ce0ce4f4266abcf34b1f24031cdef7bf9bceb32742d",
+      "sha256": "b24e1716769079312adbc17939b10b06d5f58ddcc7577645520e01cfba915034",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/native-display/rtl/hd_ddr_arbiter.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V95_2_Stereo_A/project/rtl/hd_ddr_arbiter.v",
+      "source_sha256": "084a1a677af13605188c338fe27c5a372acfe70a8f902781fdfd30c644ada1ee",
+      "sha256": "4b05cb6f435dcdf7a6862b646fa7305b3f5f98668fad36b9dcc14b138b546e48",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/range-demo/rtl/bluetooth_distance_control.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V100_2_TwoCloud/project/rtl/bluetooth_distance_control.v",
+      "source_sha256": "6f6aa329910ef48d1357233fc2f9a8c982c719e54d148c1a2c8e74141f8fb619",
+      "sha256": "6f6aa329910ef48d1357233fc2f9a8c982c719e54d148c1a2c8e74141f8fb619",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/range-demo/rtl/uart_byte_variable.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V100_2_TwoCloud/project/rtl/uart_byte_variable.v",
+      "source_sha256": "2e0fa8dcb9f00f71525a8279fc738ba6318f419ffde845f541106fba055b5d45",
+      "sha256": "a5bbbfc730de02769a09ee07a59ff97623473f457f169b6178a36a55475b4b7c",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/range-demo/rtl/demo_distance_bcd.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V100_2_TwoCloud/project/rtl/demo_distance_bcd.v",
+      "source_sha256": "0d91f85f1bee85fbf1cb26f0008a65c494135582c7aa8128463d5bf1918045b9",
+      "sha256": "0d91f85f1bee85fbf1cb26f0008a65c494135582c7aa8128463d5bf1918045b9",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/range-demo/rtl/demo_range_osd.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V100_2_TwoCloud/project/rtl/demo_range_osd.v",
+      "source_sha256": "a708861ecab4a751ee258cfd3c6248e9de745a335533759075b88a1da35887e6",
+      "sha256": "a708861ecab4a751ee258cfd3c6248e9de745a335533759075b88a1da35887e6",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/range-demo/rtl/two_cloud_demo_control.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V100_2_TwoCloud/project/rtl/two_cloud_demo_control.v",
+      "source_sha256": "ce3f6c2ce79746e9c04d79c928bb9e256a5d20816d4a36da78bfb3504326dc90",
+      "sha256": "ce3f6c2ce79746e9c04d79c928bb9e256a5d20816d4a36da78bfb3504326dc90",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/preset-display/rtl/usb_model_staging.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V100_1_TwoCloud/project/rtl/usb_model_staging.v",
+      "source_sha256": "b83c3f4bd2950095a09cf33bf2e026579d988eab7bf5fe88c28c54f71ae0a9f7",
+      "sha256": "57a510b71e156eb76bcbc7d9a692a0c1bbcb2f6051b8a41ff007ca3fa942ab07",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "fpga/preset-display/rtl/preset_view_control.v",
+      "source": "工程代码交付_20261104/01_源码工作区/V100_1_TwoCloud/project/rtl/preset_view_control.v",
+      "source_sha256": "45893d690a98e23a8b2760589340130030cfc969a3cf3b9830d13b1e79fa735c",
+      "sha256": "45893d690a98e23a8b2760589340130030cfc969a3cf3b9830d13b1e79fa735c",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/awb_decision.c",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/awb_decision.c",
+      "source_sha256": "ff81cfecb13aea5932e381c739bb3c91d2e1039092a86e465d1f380fcc437e85",
+      "sha256": "ff81cfecb13aea5932e381c739bb3c91d2e1039092a86e465d1f380fcc437e85",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/box_filter.c",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/box_filter.c",
+      "source_sha256": "a9f58e693927e6460aca0d4c301e30fa7c1400f47d4cd4eb9857f7d0acbe9fb4",
+      "sha256": "118fc7990ec5df6af28af7132599408405b6c834b495d1dd337c24740d9ddb40",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/box_filter.h",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/box_filter.h",
+      "source_sha256": "736d9e78cf676ee86d6043260ccba52b45ff484c5d5df77f7f2dde63304a65ec",
+      "sha256": "0c8385a248dc6ea13e51eb1e27e3447979793847fc85986f3bf7ca818544d7ec",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/firmware.ld",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/firmware.ld",
+      "source_sha256": "d2ffe2d02022af3ab8a1a9453a251a04ecb3124b4f18d0c123988b4f193ffe7c",
+      "sha256": "520f7fe3ce988c453b23a83e963f210e1e0eb5e8816e0cf247089fb2a6bf776b",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/math_service.c",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/math_service.c",
+      "source_sha256": "85787381300a3b1b8c612d06f66eb7f14e0fbdd48f686fa151bf839181aedeaa",
+      "sha256": "5e604fb18784f335b2e0b8b4f4d705bca94cc1cb4725a102bda39612a74b6943",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/track_core_events_v3.c",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/track_core_events_v3.c",
+      "source_sha256": "cebfd18a075b72b108e02497855c80a1a5d543b284165f2b7237e62cb237bdca",
+      "sha256": "e5d18fd9d8ef2af9291c9c23c3d20c3712b98fc66888318b8910c63981289fac",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/track_core_events_v3.h",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/track_core_events_v3.h",
+      "source_sha256": "e5130c78aa3dd4290b5229172333319ff8ced58de07a430d93038d8a57e99324",
+      "sha256": "0f0ed244f91f2092317f48bfdcdca7905d6dcbf49b09851ae149fcc7717cdcd3",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/candidate/ae_decision.c",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/candidate/ae_decision.c",
+      "source_sha256": "1f63bac8a4cec16f5842822b4f8c492da92d23fab188d024ee98025e0e57195b",
+      "sha256": "1f63bac8a4cec16f5842822b4f8c492da92d23fab188d024ee98025e0e57195b",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/candidate/startup.S",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/candidate/startup.S",
+      "source_sha256": "87cb42b46d17bb3278cbceb9b7cb993cbcbd374792a2d31e17a69104c6e8134f",
+      "sha256": "0609c4062eafb4b637bf417728bade498297dc454b166fe14c485c7f4f492085",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "firmware/experimental-services/ORIGINAL_STATUS.txt",
+      "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/README.txt",
+      "source_sha256": "bc2de7a251089a4ad208bd9bd5efd17ef40eecdd55f709f5602e398f3b6bc8bb",
+      "sha256": "5c0923449ea589725461499e0e3348d7ed77e9f4dc022b2004ed15e78819f39a",
+      "transformed": true,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "examples/clouds/scene1_original.ply",
+      "source": "host_tools/stereo_workbench_20261104/dist/samples/scene1_original.ply",
+      "source_sha256": "b416774358dfed02382049c1df3d2363394bb6efbabf3dd8cbed6136f0a74379",
+      "sha256": "b416774358dfed02382049c1df3d2363394bb6efbabf3dd8cbed6136f0a74379",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "examples/clouds/scene2_original.ply",
+      "source": "host_tools/stereo_workbench_20261104/dist/samples/scene2_original.ply",
+      "source_sha256": "361518cb921641f2c9eb2bf705b9323cf058b255c5cacb4edc4aedcd5d8cc61e",
+      "sha256": "361518cb921641f2c9eb2bf705b9323cf058b255c5cacb4edc4aedcd5d8cc61e",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "host/workbench/src/index.html",
+      "source": "host_tools/stereo_workbench_20261104/src/index.html",
+      "source_sha256": "c922191e9eb9c0cc621f664823b5b914d9e835fe17b9101c0b3028dbe47c44de",
+      "sha256": "20e7a216901e1398eea88e95274b715c4a50992dbdc89c3113c7ba4703522651",
+      "transformed": true,
+      "reason": "Public portable edition: two original samples, local download link, no site-specific service worker"
+    },
+    {
+      "file": "host/workbench/src/app.js",
+      "source": "host_tools/stereo_workbench_20261104/src/app.js",
+      "source_sha256": "0f62cc45c91cd4bf061e7a2f28712e876e724fa8616f52238d1a89afdb5ac3c2",
+      "sha256": "2c9fee8841fffe33c9463c3cc5fff8736835b82e5a5160d38e5faaacd1a41d54",
+      "transformed": true,
+      "reason": "Public portable edition: two original samples, local download link, no site-specific service worker"
+    },
+    {
+      "file": "host/workbench/src/core.js",
+      "source": "host_tools/stereo_workbench_20261104/src/core.js",
+      "source_sha256": "fa08e08afba4dcca772f7880775c90db95e2fef978e1130bdea13f565ef70523",
+      "sha256": "fa08e08afba4dcca772f7880775c90db95e2fef978e1130bdea13f565ef70523",
+      "transformed": true,
+      "reason": "UTF-8/LF source copy"
+    },
+    {
+      "file": "host/workbench/src/viewer.js",
+      "source": "host_tools/stereo_workbench_20261104/src/viewer.js",
+      "source_sha256": "236af50aaec38829831ec3df25cf7076bf032b8295db87c023cee078684ab0ca",
+      "sha256": "236af50aaec38829831ec3df25cf7076bf032b8295db87c023cee078684ab0ca",
+      "transformed": true,
+      "reason": "UTF-8/LF source copy"
+    },
+    {
+      "file": "host/workbench/src/style.css",
+      "source": "host_tools/stereo_workbench_20261104/src/style.css",
+      "source_sha256": "3844904afd45df9c9557689184fe44e092aece3e167dfbbecf144f89770aeed5",
+      "sha256": "3844904afd45df9c9557689184fe44e092aece3e167dfbbecf144f89770aeed5",
+      "transformed": true,
+      "reason": "UTF-8/LF source copy"
+    },
+    {
+      "file": "host/mobile-distance/src/template.html",
+      "source": "host_tools/mobile_distance_20261103/dist/index.html",
+      "source_sha256": "feec6981d35ed92f61d90b298f26dbd8026809f77deeb5e7e31f6c5cd0d3c651",
+      "sha256": "e96a52e50dbbef9f11e07b6cf9c1d62e4c3e748c42af7de251b715e4da824314",
+      "transformed": true,
+      "reason": "Extracted static page template; omitted all runtime relay state"
+    },
+    {
+      "file": "host/mobile-distance/src/app.js",
+      "source": "host_tools/mobile_distance_20261103/app_source.js",
+      "source_sha256": "dd617c262b90563d13b4f1a16cdb08505189bec32beb0aee6965160a8b34b82f",
+      "sha256": "dd617c262b90563d13b4f1a16cdb08505189bec32beb0aee6965160a8b34b82f",
+      "transformed": false,
+      "reason": "UTF-8/LF normalization only"
+    },
+    {
+      "file": "host/mobile-distance/bridge.py",
+      "source": "host_tools/mobile_distance_20261103/bridge.py",
+      "source_sha256": "c63db520535e29966a661b17ac2fd556d344f2a758a01041ed4c1e7a6b3afd19",
+      "sha256": "c49eebbbbd101fca1e7e31fd34e9a5b8d08fdb6698247f3b0827e0ff023c6f83",
+      "transformed": true,
+      "reason": "Serve the repository-local docs/remote directory; no serial opened at startup"
+    },
+    {
+      "file": "docs/media/prototype-front.jpg",
+      "source": "project_management/技术报告_图文深化修订_20261104/制作与校验/配图/整机正面.jpg",
+      "source_sha256": "2481da70f6cb107ef801e507808d6bf2ced93dfcf0c1c57973ae9ec344783dc1",
+      "sha256": "2481da70f6cb107ef801e507808d6bf2ced93dfcf0c1c57973ae9ec344783dc1",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "docs/media/stereo-rig.jpg",
+      "source": "project_management/技术报告_图文深化修订_20261104/制作与校验/配图/双摄支架局部.jpg",
+      "source_sha256": "f467bda68f3e030611bccd9c3fab8c840692aea6e65b3c71c69b96a975d29314",
+      "sha256": "f467bda68f3e030611bccd9c3fab8c840692aea6e65b3c71c69b96a975d29314",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "docs/media/monochrome-modes.png",
+      "source": "project_management/技术报告_图文深化修订_20261104/制作与校验/配图/单目灰度与二值.png",
+      "source_sha256": "88224b5cda7fa2e0bf48abb37715e8669496f93e765d1a61cf6c18121df72872",
+      "sha256": "88224b5cda7fa2e0bf48abb37715e8669496f93e765d1a61cf6c18121df72872",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "docs/media/edge-and-style.png",
+      "source": "project_management/技术报告_图文深化修订_20261104/制作与校验/配图/单目轮廓与风格.png",
+      "source_sha256": "1fe38d62ffa0bef5b8836dafbc2bd042ae7b8a4df1fa559714afd90a2d168f87",
+      "sha256": "1fe38d62ffa0bef5b8836dafbc2bd042ae7b8a4df1fa559714afd90a2d168f87",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "docs/media/workbench.png",
+      "source": "project_management/技术报告_图文深化修订_20261104/制作与校验/配图/网页工作台原型.png",
+      "source_sha256": "fc047f1cac15aa34c84602bb1aecc4b722e040efc4808b3fe8558015b751d3f2",
+      "sha256": "fc047f1cac15aa34c84602bb1aecc4b722e040efc4808b3fe8558015b751d3f2",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "docs/media/pointcloud-reference.png",
+      "source": "project_management/TwoCloud_20261103/scene1_20261103_212818/raft_middlebury_v1/neural_cloud_front.png",
+      "source_sha256": "651c1bb21123b0b971c1af9be65b7a1413ce4dd7355ce148951d27fc5ed335e0",
+      "sha256": "651c1bb21123b0b971c1af9be65b7a1413ce4dd7355ce148951d27fc5ed335e0",
+      "transformed": false,
+      "reason": "Unmodified binary copy"
+    },
+    {
+      "file": "docs/media/poster-preview.png",
+      "source": "project_management/工程展示海报_20261104/高清视觉感知与三维交互系统_工程海报_300dpi.png",
+      "source_sha256": "cc89fc00e5ab30bcdcc4421e3795511c13fb684a21892750d0da5f712f71404f",
+      "sha256": "5aefe6935422595794b6b08f9aa94d4cda37f4c2b4eec9216c9b7292012d4bbf",
+      "transformed": true,
+      "reason": "Small display preview; print assets kept separately"
+    }
+  ],
+  "original_workspace_modified": false,
+  "hardware_accessed": false,
+  "full_FPGA_rebuild_performed": false,
+  "scope": "Curated public materials; not a complete board build"
+}

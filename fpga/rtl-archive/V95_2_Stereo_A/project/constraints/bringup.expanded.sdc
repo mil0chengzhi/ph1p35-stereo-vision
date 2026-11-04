@@ -1,0 +1,17 @@
+# AS94 initial profile: all internal paths ordinary; fresh CDC review required.
+create_clock -name mcu_feedback -period 20.000 [get_pins ae/arithmetic/hard_mcu.ahb_clk]
+create_clock -name board_50 -period 20.000 [get_ports {clk_50}]
+create_clock -name mipi_hs -period 2.000 [get_ports {mipi_clock_p}]
+derive_clocks
+create_clock -name db_eth_rx_pad -period 8.000 -waveform {0.000 4.000} [get_ports {eth_rxc}]
+set_input_delay -clock db_eth_rx_pad -max 2.550 [get_ports {eth_rx_ctl eth_rxd[*]}]
+set_input_delay -clock db_eth_rx_pad -min 1.450 [get_ports {eth_rx_ctl eth_rxd[*]}]
+set_input_delay -clock db_eth_rx_pad -max 2.550 -clock_fall -add_delay [get_ports {eth_rx_ctl eth_rxd[*]}]
+set_input_delay -clock db_eth_rx_pad -min 1.450 -clock_fall -add_delay [get_ports {eth_rx_ctl eth_rxd[*]}]
+create_generated_clock -name db_eth_tx_pad -source [get_pins {phy/eth_pll/pll_core/u_PH1P_PHY_PLL.clkc[1]}] -multiply_by 1 [get_ports {eth_txc}]
+set_output_delay -clock db_eth_tx_pad -max 1.200 [get_ports {eth_tx_ctl eth_txd[*]}]
+set_output_delay -clock db_eth_tx_pad -min -1.200 [get_ports {eth_tx_ctl eth_txd[*]}]
+set_output_delay -clock db_eth_tx_pad -max 1.200 -clock_fall -add_delay [get_ports {eth_tx_ctl eth_txd[*]}]
+set_output_delay -clock db_eth_tx_pad -min -1.200 -clock_fall -add_delay [get_ports {eth_tx_ctl eth_txd[*]}]
+set_output_delay -clock board_50 -max 0.000 [get_ports {step1 dir1 en1 step2 dir2 en2 uart_tx led[*]}]
+set_output_delay -clock board_50 -min 0.000 [get_ports {step1 dir1 en1 step2 dir2 en2 uart_tx led[*]}]

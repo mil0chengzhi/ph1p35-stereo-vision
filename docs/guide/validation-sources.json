@@ -1,0 +1,20 @@
+[
+  {
+    "source_name": "实测结果与使用说明.txt",
+    "source_project": "3D实机优化_NB94_20261102_1551",
+    "sha256": "838fb2b826c40500912c0da43d2a355735b9da39d15d0e51215686d88e4be24e",
+    "included_full_log": false
+  },
+  {
+    "source_name": "实拍验收说明.txt",
+    "source_project": "A板720p点云实拍验收_20261102_job2",
+    "sha256": "fb4ad168b49a72af6106868de71fc4780cbac94f32da03f5e81aa74a556c1557",
+    "included_full_log": false
+  },
+  {
+    "source_name": "蓝牙测距网页对接协议.txt",
+    "source_project": "TwoCloud_20261103",
+    "sha256": "afed87ff50d7aadad937f69207c7ed5965071fd554d034339897e241586c7e4c",
+    "included_full_log": false
+  }
+]

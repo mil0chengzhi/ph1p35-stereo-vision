@@ -1,0 +1,21 @@
+* text=auto
+*.md text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.ld text eol=lf
+*.v text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.S text eol=lf
+*.jpg binary
+*.png binary
+*.pdf binary
+*.docx binary
+*.ply binary
+# Preserve the original encodings and byte-level provenance of archived HDL.
+fpga/rtl-archive/** -text

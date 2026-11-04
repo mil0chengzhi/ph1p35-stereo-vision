@@ -1,0 +1,51 @@
+# HX1P35A / PH1P35MDG324: package BALL locations, not header-pin numbers.
+# WARNING: supplied board documents disagree about the J1/J2 names.
+# The GPIOA header is called J1 in the schematic and pin-summary document.
+# Disconnect D36A and locate the signals by measurement BEFORE connecting it.
+# The 2x5 connection REQUIRES an adapter or a purpose-wired cable, never a
+# fully connected straight-through cable. D36A P1-1 ADC and P1-2 5 V stay NC.
+# P1-9 connects to fixed GND through an adapter, or stays NC in the cable.
+# P1-10 connects to fixed header GND pin 12; header pin 11 is 5 V and stays NC.
+set_pin_assignment { clk_50 }      { LOCATION = C4; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { key_n[0] } { LOCATION = D5; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key_n[1] } { LOCATION = A9; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key_n[2] } { LOCATION = B9; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key_n[3] } { LOCATION = C7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# V4 LEDs: camera boot OK / camera fault / PHY ready / DDR status.
+set_pin_assignment { led[0] }   { LOCATION = D10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led[1] }   { LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led[2] }   { LOCATION = C6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led[3] }   { LOCATION = D6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# Verify actual accessible header locations with driver disconnected.
+# First axis: candidate J1-10 -> P1-8, J1-8 -> P1-6, J1-6 -> P1-4.
+set_pin_assignment { step1 }     { LOCATION = R2; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLDOWN; }
+set_pin_assignment { dir1 }      { LOCATION = R5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLDOWN; }
+set_pin_assignment { en1 }       { LOCATION = T3; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLDOWN; }
+# Second axis: J1-9 -> P1-7, J1-7 -> P1-5, J1-5 -> P1-3.
+set_pin_assignment { step2 }    { LOCATION = R3; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLDOWN; }
+set_pin_assignment { dir2 }     { LOCATION = T2; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLDOWN; }
+set_pin_assignment { en2 }      { LOCATION = T4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLDOWN; }
+
+set_pin_assignment { uart_rx } { LOCATION = J1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { uart_tx } { LOCATION = H1; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# Identical board HDMI and local camera connections; DPHY0 dedicated receiver.
+set_pin_assignment {camera_scl} { LOCATION = K3; IOSTANDARD = LVCMOS33; }
+set_pin_assignment {camera_sda} { LOCATION = J3; IOSTANDARD = LVCMOS33; }
+set_pin_assignment {camera_xclk} { LOCATION = L3; IOSTANDARD = LVCMOS33; }
+set_pin_assignment {camera_pwdn_n} { LOCATION = L2; IOSTANDARD = LVCMOS33; }
+set_pin_assignment {hdmi_scl} { LOCATION = E15; IOSTANDARD = LVCMOS33; }
+set_pin_assignment {hdmi_sda} { LOCATION = F15; IOSTANDARD = LVCMOS33; }
+set_pin_assignment {hdmi_power_enable} { LOCATION = B17; IOSTANDARD = LVCMOS33; }
+set_pin_assignment {hdmi_data_p[0]} { LOCATION = G16; IOSTANDARD = TMDS33; }
+set_pin_assignment {hdmi_data_n[0]} { LOCATION = H16; IOSTANDARD = TMDS33; }
+set_pin_assignment {hdmi_data_p[1]} { LOCATION = F17; IOSTANDARD = TMDS33; }
+set_pin_assignment {hdmi_data_n[1]} { LOCATION = E18; IOSTANDARD = TMDS33; }
+set_pin_assignment {hdmi_data_p[2]} { LOCATION = H14; IOSTANDARD = TMDS33; }
+set_pin_assignment {hdmi_data_n[2]} { LOCATION = H13; IOSTANDARD = TMDS33; }
+set_pin_assignment {hdmi_clock_p} { LOCATION = C17; IOSTANDARD = TMDS33; }
+set_pin_assignment {hdmi_clock_n} { LOCATION = D18; IOSTANDARD = TMDS33; }
+
+# DPHY0 clock V16/U16; lanes V14/U14,V15/U15,V17/U17,U18/V18.
+# The dedicated MIPI virtual ports cannot be assigned ordinary GPIO pins.
+# KEY1..3 reserved in this camera image; KEY4 retains reset. Motors are tied off.
