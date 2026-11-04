@@ -25,6 +25,9 @@ Thumbs.db
 .vscode/
 # FPGA generated output and licensed tool data
 **/project/output/
+# Keep the SDC snapshots explicitly included in the source archive manifest.
+!fpga/rtl-archive/**/project/output/
+!fpga/rtl-archive/**/project/output/**/*.sdc
 **/vendor_originals/
 **/al_ip/
 *.enc.v
