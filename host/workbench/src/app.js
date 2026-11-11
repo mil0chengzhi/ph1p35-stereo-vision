@@ -2,7 +2,6 @@
   'use strict';
   const $=id=>document.getElementById(id),C=CloudCore;
   const S={model:null,viewer:null,stream:null,recorder:null,recordChunks:[],recordStart:0,recordTimer:null,gallery:[],serial:null,serialReader:null,serialCarry:new Uint8Array(),receiving:false,sourceName:'',toastTimer:null};
-  const samples={original1:{name:'场景1 · 原始电脑点云',origin:'computer'},original2:{name:'场景2 · 原始电脑点云',origin:'computer'}};
   const stamp=()=>new Date().toISOString().replace(/[:.]/g,'-');
   const safeName=s=>String(s||'pointcloud').replace(/[\\/:*?"<>|\r\n]/g,'_').slice(0,100);
   function toast(text,error=false){clearTimeout(S.toastTimer);$('toast').textContent=text;$('toast').classList.toggle('error',error);$('toast').hidden=false;S.toastTimer=setTimeout(()=>$('toast').hidden=true,error?9000:5000);}
@@ -10,21 +9,16 @@
   function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=safeName(name);a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
   function label(){const m=S.model;return (m?.meta.origin==='simulation'?'人工噪声模拟 / ':m?.meta.origin==='serial'?'串口接收 / ':'')+(S.sourceName||'点云');}
   function requireModel(){if(!S.model)throw Error('请先导入或接收点云。');return S.model;}
+  // 载入1至300万点的解析模型；model/name 不可为空，meta 可省略。无返回值，绘制异常向上传递。
   function apply(model,name,meta={}){
     model.meta={...model.meta,...meta,label:name};S.model=model;S.sourceName=name;
     $('pointCount').textContent=model.count.toLocaleString();$('sourceLabel').textContent=name;$('modelName').textContent=name;
-    const origin=model.meta.origin;const tags={simulation:'人工噪声模拟',computer:'电脑预处理',serial:'串口接收 · CRC通过',import:'本地文件'};
+    const origin=model.meta.origin;const tags={simulation:'人工噪声模拟',computer:'电脑离线数据',serial:'串口接收 · CRC通过',import:'本地文件'};
     $('provenanceTag').textContent=tags[origin]||'本地点云';$('provenanceTag').classList.toggle('simulation',origin==='simulation');
     $('modelNote').textContent=origin==='simulation'?'当前是人工噪声模拟。未修改板端数据；打印建议使用原始数据。':'导出保留完整已载入点云；全角度观察不会补出未采集的背面。';
-    $('exportPLY').disabled=false;$('cloudLoading').hidden=true;S.viewer?.setModel(model);
+    for(const id of ['exportPLY','snapshotCloud','exportViews','exportProject','saveSession','reliefButton'])$(id).disabled=false;
+    $('cloudEmpty').hidden=true;$('cloudLoading').hidden=true;$('cloudStatus').classList.add('active');$('cloudStatus').innerHTML='<i></i>点云已载入';S.viewer?.setModel(model);
     if(model.meta.dropped)toast('已忽略 '+model.meta.dropped+' 个非有限坐标。');
-  }
-  function decode64(text){const s=atob(text),b=new Uint8Array(s.length);for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i);return b;}
-  async function loadSample(key){
-    const item=samples[key];if(!item)throw Error('未知示例。');$('cloudLoading').hidden=false;$('cloudLoading').textContent='正在载入彩色点云…';
-    try{let bytes;if(window.DEMO_PAYLOADS?.[key])bytes=decode64(window.DEMO_PAYLOADS[key]);else{if(location.protocol==='file:')throw Error('当前单页未包含此示例。请下载完整离线版，或导入自己的PLY文件。');const r=await fetch(item.path);if(!r.ok)throw Error('示例文件暂时无法载入，请导入本地PLY。');bytes=new Uint8Array(await r.arrayBuffer());}
-      apply(C.parsePLY(bytes),item.name,{origin:item.origin,units:'mm (source declaration; unverified scale)'});
-    }finally{$('cloudLoading').hidden=true;}
   }
   function viewSettings(){const v=S.viewer;return v?{yaw:v.yaw,pitch:v.pitch,zoom:v.zoom,pan:v.pan,size:v.size,density:v.density,depthColor:v.depthColor,grid:v.grid}:{};}
   function setView(settings={}){if(!S.viewer)return;const limits={yaw:[-360,360],pitch:[-89,89],zoom:[.2,6],size:[1,4]};for(const key of Object.keys(limits))if(Number.isFinite(settings[key]))S.viewer[key]=Math.max(limits[key][0],Math.min(limits[key][1],settings[key]));if([.25,.5,1].includes(settings.density))S.viewer.density=settings.density;if(Array.isArray(settings.pan)&&settings.pan.length===2&&settings.pan.every(Number.isFinite))S.viewer.pan=settings.pan.map(v=>Math.max(-3,Math.min(3,v)));for(const key of ['depthColor','grid'])if(typeof settings[key]==='boolean')S.viewer[key]=settings[key];S.viewer.rotate=false;syncView();}
@@ -88,16 +82,16 @@
   on('exportPLY',()=>{download(C.exportPLY(requireModel()),safeName(S.sourceName.replace(/\.[a-z0-9]+$/i,''))+'.ply');toast('完整XYZ与颜色已导出；未按预览密度删点。');});
   on('snapshotCloud',snapshotCloud);on('exportViews',exportViews);on('exportProject',exportProject);on('saveSession',saveSession);on('restoreSession',()=>restoreSession());
   on('refreshDevices',async()=>{const devices=await refreshDevices();toast(devices.length?'设备列表已更新，请选择HDMI采集卡。':'未发现视频输入设备。');});on('connectVideo',connectVideo);on('emptyConnect',connectVideo);on('snapVideo',snapVideo);on('recordVideo',recordVideo);
-  $('sampleSelect').onchange=guard(e=>loadSample(e.target.value));document.querySelectorAll('[data-pose]').forEach(b=>b.onclick=()=>S.viewer?.pose(b.dataset.pose));
+  document.querySelectorAll('[data-pose]').forEach(b=>b.onclick=()=>S.viewer?.pose(b.dataset.pose));
   on('autoRotate',()=>{if(S.viewer){S.viewer.rotate=!S.viewer.rotate;syncView();}});on('toggleGrid',()=>{if(S.viewer){S.viewer.grid=!S.viewer.grid;syncView();}});on('homeView',()=>S.viewer?.home());
   $('pointSize').oninput=e=>{if(S.viewer)S.viewer.size=Number(e.target.value);};$('density').onchange=e=>{if(S.viewer)S.viewer.density=Number(e.target.value);};$('colorMode').onchange=e=>{if(S.viewer)S.viewer.depthColor=e.target.value==='depth';};
   on('reliefButton',()=>{requireModel();$('reliefDialog').showModal();});on('exportSTL',()=>{const result=C.relief(requireModel(),Number($('reliefWidth').value),Number($('reliefHeight').value));download(result.blob,'STEREO_2p5D_Relief_'+stamp()+'.stl');$('reliefDialog').close();toast('2.5D浮雕STL已下载，含封闭底板。请在切片软件中核对后打印。');});
   on('serialButton',()=>{$('serialDialog').showModal();if(!navigator.serial)$('serialMessage').textContent='当前浏览器不支持Web Serial，请使用电脑Chrome或Edge。';});on('connectSerial',openSerial);on('receiveCloud',receiveCloud);$('serialDialog').addEventListener('close',()=>{if(!S.receiving)closeSerial();});
   let dragDepth=0;document.addEventListener('dragenter',e=>{if(e.dataTransfer?.types.includes('Files')){e.preventDefault();dragDepth++;$('dropOverlay').hidden=false;}});document.addEventListener('dragover',e=>{if(e.dataTransfer?.types.includes('Files'))e.preventDefault();});document.addEventListener('dragleave',()=>{dragDepth--;if(dragDepth<=0)$('dropOverlay').hidden=true;});document.addEventListener('drop',guard(async e=>{e.preventDefault();dragDepth=0;$('dropOverlay').hidden=true;await openFile(e.dataTransfer.files[0]);}));
   navigator.mediaDevices?.addEventListener?.('devicechange',()=>refreshDevices().catch(()=>{}));
-  try{S.viewer=new CloudViewer($('cloudCanvas'),syncView);}catch(e){$('cloudLoading').textContent=e.message;toast(e.message,true);}
-  window.Workbench={state:S,core:C,apply,loadSample,openFile,viewSettings,setView,saveSession,restoreSession,importProject,receiveCloud};
-  (async()=>{try{let restored=false;try{restored=await restoreSession(true);}catch{}if(!restored)await loadSample('original1');}catch(e){$('cloudLoading').hidden=true;toast(e.message,true);}})();
+  try{S.viewer=new CloudViewer($('cloudCanvas'),syncView);}catch(e){$('cloudEmpty').hidden=true;$('cloudLoading').hidden=false;$('cloudLoading').textContent=e.message;toast(e.message,true);}
+  window.Workbench={state:S,core:C,apply,openFile,viewSettings,setView,saveSession,restoreSession,importProject,receiveCloud};
+  // 启动时不载入内置数据或旧缓存；用户主动导入、串口接收或恢复会话后才显示点云。
   // This portable build does not register a service worker.
   if(navigator.mediaDevices?.enumerateDevices)refreshDevices().catch(()=>{});
 })();

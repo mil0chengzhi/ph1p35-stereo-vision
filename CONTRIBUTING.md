@@ -1,6 +1,6 @@
 # 参与开发
 
-请注明所改模块、来源镜像、输入输出变化和验证方式。网页改动运行`python tools/verify_package.py`及`node tests/workbench.test.cjs`，修改模板后重新执行构建脚本并提交生成的HTML。
+请注明所改模块、来源镜像、输入输出变化和验证方式。网页改动运行`python tools/verify_package.py`、`node tests/workbench.test.cjs`及`node tests/workbench-app.test.cjs`，修改模板后重新执行构建脚本并提交生成的HTML。
 
 来源哈希用于识别归档快照。主动修改已复制的源码后，应更新provenance.json的输出sha256和变化说明，保留source_sha256；RTL还需更新fpga/manifest.json。不要通过忽略校验来掩盖无意的文件变化。
 

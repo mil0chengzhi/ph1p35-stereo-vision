@@ -14,14 +14,13 @@
 | --- | --- |
 | 单目视觉 | 灰度、二值化、边缘、颜色目标等原型照片及工程说明 |
 | 原生720p实验 | Census与单水平路径聚合、原始深度导出、高清投影等代表性RTL；保留稀疏质量说明 |
-| 预存点云演示 | 电脑预处理模型与FPGA显示的分工、按键控制模块 |
 | 蓝牙距离OSD | HC-05接线、BP2F二进制协议、50.0～75.0cm手动输入控制台 |
 | 网页上位机 | 点云导入、旋转、PLY导出、六视图、项目包和2.5D浮雕STL |
 | RISC-V硬核 | AE/AWB与目标服务候选C代码，标明尚未完整集成的接口 |
 
 ## 先体验网页
 
-下载仓库后，用Chrome或Edge打开 **[docs/index.html](docs/index.html)**。页面包含两组电脑预处理的彩色点云，无需安装Node、Python或访问CDN。拖动旋转、右键平移、滚轮缩放；数据导出保留完整已载入点云。
+下载仓库后，用Chrome或Edge打开 **[docs/index.html](docs/index.html)**。页面不再内置点云，打开后等待导入自己的PLY等文件，或从兼容的数据源接收。无需安装Node、Python或访问CDN；载入后可旋转观察和完整导出。
 
 也可在仓库根目录运行：
 
@@ -37,18 +36,17 @@ python -m http.server 8080 --bind 127.0.0.1
 
 | 目录 | 内容 |
 | --- | --- |
-| [fpga](fpga/README.md) | 原生深度、点云显示、蓝牙OSD与预存演示的RTL摘选及多版本源码归档 |
+| [fpga](fpga/README.md) | 原生深度、点云显示、蓝牙OSD的RTL摘选及多版本源码归档 |
 | [firmware](firmware/README.md) | 内置RISC-V服务候选；保留原候选状态说明 |
 | [host/workbench](host/workbench/README.md) | 无第三方JS运行依赖的上位机源代码与构建脚本 |
 | [host/mobile-distance](host/mobile-distance/README.md) | 手机控制台与可选电脑SPP桥接 |
-| [examples/clouds](examples/clouds/README.md) | 两组电脑生成点云、点数和来源信息 |
 | [docs/guide](docs/guide/architecture.md) | 架构、版本、接线、协议与验证方法 |
 
 ## 功能状态怎么理解
 
-- **原生双目版本与预存演示分别记录。** AS95/NB94有1280×720深度数据与固定视角HDMI记录，但表面覆盖仍稀疏。AP2F/BP2F加载的是电脑预处理模型，不能把这一演示写成FPGA完成神经网络重建。
+- **保留原生双目实验，不附预存双帧演示。** AS95/NB94有1280×720深度数据与固定视角HDMI记录，但表面覆盖仍稀疏；已移除电脑预处理点云、预存模型上传与双帧切换模块。
 - **距离控制台是手动输入。** 页面向OSD传递使用者输入的毫米值；0.1cm是调节和显示步进，不是自动测距精度。
-- **HDMI视频与XYZ点云分别接收。** 浏览器的CLOUD/1接收协议需要数据源支持；AP2F展示固件尚无完整点云回读接口。
+- **HDMI视频与XYZ点云分别接收。** 浏览器的CLOUD/1接收协议需要数据源支持；本仓库未提供完整的板级CLOUD/1回读实现。
 - **RTL按摘选与版本归档分别组织。** [rtl-archive](fpga/rtl-archive/README.md)保留了各版本中的RTL、头文件及现有约束，未合并同名模块。本仓库没有复制厂商`al_ip`目录、加密IP、安装包或参考位流，仍不是克隆后直接综合烧录的完整板级工程。
 - **设计海报与范文另有定位。** 海报中的720p目标架构及理想完成态范文不作为当前实测性能证明。具体阶段以[版本表](docs/guide/versions.md)和[验证说明](docs/guide/validation.md)为准。
 
@@ -61,6 +59,7 @@ python -m http.server 8080 --bind 127.0.0.1
 ```console
 python tools/verify_package.py
 node tests/workbench.test.cjs
+node tests/workbench-app.test.cjs
 python host/workbench/build.py
 ```
 

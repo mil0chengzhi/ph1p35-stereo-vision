@@ -180,26 +180,5 @@
     "source_path": "V100_2_TwoCloud/project/rtl/demo_range_osd.v",
     "sha256": "a708861ecab4a751ee258cfd3c6248e9de745a335533759075b88a1da35887e6",
     "scope": "representative module excerpt; dependencies and board-level build excluded"
-  },
-  {
-    "file": "fpga/range-demo/rtl/two_cloud_demo_control.v",
-    "source_project": "V100_2_TwoCloud",
-    "source_path": "V100_2_TwoCloud/project/rtl/two_cloud_demo_control.v",
-    "sha256": "ce3f6c2ce79746e9c04d79c928bb9e256a5d20816d4a36da78bfb3504326dc90",
-    "scope": "representative module excerpt; dependencies and board-level build excluded"
-  },
-  {
-    "file": "fpga/preset-display/rtl/usb_model_staging.v",
-    "source_project": "V100_1_TwoCloud",
-    "source_path": "V100_1_TwoCloud/project/rtl/usb_model_staging.v",
-    "sha256": "57a510b71e156eb76bcbc7d9a692a0c1bbcb2f6051b8a41ff007ca3fa942ab07",
-    "scope": "representative module excerpt; dependencies and board-level build excluded"
-  },
-  {
-    "file": "fpga/preset-display/rtl/preset_view_control.v",
-    "source_project": "V100_1_TwoCloud",
-    "source_path": "V100_1_TwoCloud/project/rtl/preset_view_control.v",
-    "sha256": "45893d690a98e23a8b2760589340130030cfc969a3cf3b9830d13b1e79fa735c",
-    "scope": "representative module excerpt; dependencies and board-level build excluded"
   }
 ]

@@ -1,19 +1,26 @@
 /* Data and integrity checks. No DOM, server, camera or serial port is opened. */
-const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const root=path.resolve(__dirname,'..'),C=require('../host/workbench/src/core.js');
+const assert=require('node:assert/strict'),C=require('../host/workbench/src/core.js');
 (async()=>{
   assert.equal(C.crc32(new TextEncoder().encode('123456789')),0xcbf43926);
-  for(const [name,n] of [['scene1_original.ply',373593],['scene2_original.ply',382765]]){
-    const m=C.parsePLY(fs.readFileSync(path.join(root,'examples/clouds',name)));
-    assert.equal(m.count,n);
-    const again=C.parsePLY(await C.exportPLY(m).arrayBuffer());
-    assert.equal(again.count,n);
-    for(let i=0;i<n;i++)for(let k=0;k<3;k++){
-      assert.equal(again.xyz[i*3+k],m.xyz[i*3+k]);assert.equal(again.rgb[i*3+k],m.rgb[i*3+k]);
+  const ascii='ply\nformat ascii 1.0\nelement vertex 3\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n0 0 1 255 0 0\n1 0 2 0 255 0\n0 1 3 0 0 255\n';
+  const expectedXYZ=[0,0,1,1,0,2,0,1,3],expectedRGB=[255,0,0,0,255,0,0,0,255];
+  // 独立按PLY的15字节顶点格式构造测试输入，不使用任何预处理场景或硬件测量数据。
+  const header=new TextEncoder().encode(ascii.slice(0,ascii.indexOf('end_header\n')+11).replace('format ascii','format binary_little_endian'));
+  const binary=new Uint8Array(header.length+45),body=new DataView(binary.buffer);
+  binary.set(header);
+  for(let i=0;i<3;i++)for(let k=0;k<3;k++){
+    body.setFloat32(header.length+i*15+k*4,expectedXYZ[i*3+k],true);
+    body.setUint8(header.length+i*15+12+k,expectedRGB[i*3+k]);
+  }
+  for(const bytes of [new TextEncoder().encode(ascii),binary]){
+    const model=C.parsePLY(bytes),again=C.parsePLY(await C.exportPLY(model).arrayBuffer());
+    assert.equal(model.count,3);assert.equal(again.count,3);
+    for(const parsed of [model,again]){
+      assert.deepEqual(Array.from(parsed.xyz),expectedXYZ);
+      assert.deepEqual(Array.from(parsed.rgb),expectedRGB);
     }
   }
-  const ascii='ply\nformat ascii 1.0\nelement vertex 3\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n0 0 1 255 0 0\n1 0 2 0 255 0\n0 1 3 0 0 255\n';
-  assert.equal(C.parsePLY(new TextEncoder().encode(ascii)).count,3);
+  assert.throws(()=>C.parsePLY(binary.subarray(0,-1)));
   assert.throws(()=>C.parsePLY(new TextEncoder().encode(ascii.slice(0,-35))));
   assert.equal(C.parseText('x,y,z,r,g,b\n0,0,1,255,0,0\n1,1,2,0,255,0','file.csv').count,2);
   const archive=await C.zip([{name:'model.ply',data:new TextEncoder().encode(ascii)}]).arrayBuffer();
@@ -33,5 +40,5 @@ const root=path.resolve(__dirname,'..'),C=require('../host/workbench/src/core.js
   }
   assert.equal(stl.byteLength,84+tri*50);assert.equal(tri,relief.triangles);assert(volume>0);
   for(const n of edges.values())assert.equal(n,2,'Relief surface must have two triangles per edge');
-  console.log(JSON.stringify({passed:true,all_sample_XYZ_RGB_preserved:true,CRC_known_vector:true,truncated_PLY_rejected:true,ZIP_corruption_rejected:true,relief_closed:true,relief_positive_volume:true,hardware_accessed:false}));
+  console.log(JSON.stringify({passed:true,fixture_XYZ_RGB_preserved:true,CRC_known_vector:true,truncated_PLY_rejected:true,ZIP_corruption_rejected:true,relief_closed:true,relief_positive_volume:true,hardware_accessed:false}));
 })().catch(e=>{console.error(e);process.exitCode=1;});

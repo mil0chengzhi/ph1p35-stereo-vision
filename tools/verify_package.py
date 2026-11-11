@@ -2,7 +2,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
-import hashlib,json,re,struct,ast
+import hashlib,json,re,ast
 
 ROOT=Path(__file__).resolve().parents[1]
 TEXT={'.md','.py','.js','.cjs','.v','.sv','.vh','.sdc','.adc','.c','.h','.s','.ld','.txt','.json','.html','.css','.yml','.yaml'}
@@ -37,6 +37,7 @@ class Links(HTMLParser):
             if k in {'href','src'}:check_local(self.path,v)
 
 def main():
+    """校验发布文件与清单；无参数和返回值，失败抛出断言或读取异常，不访问硬件。"""
     files=sorted(p for p in ROOT.rglob('*') if p.is_file() and not any(x in {'.git','__pycache__'} for x in p.relative_to(ROOT).parts))
     for p in files:
         rel=p.relative_to(ROOT)
@@ -58,17 +59,18 @@ def main():
         for item in json.loads(archive_provenance.read_text(encoding='utf-8'))['files']:
             p=archive_provenance.parent/item['file']
             assert p.exists() and digest(p)==item['sha256'],f'Archived source changed: {item["file"]}'
-    clouds=json.loads((ROOT/'examples/clouds/provenance.json').read_text(encoding='utf-8'))
-    for cloud in clouds:
-        p=ROOT/'examples/clouds'/cloud['file'];raw=p.read_bytes();end=raw.index(b'end_header\n')+len(b'end_header\n')
-        header=raw[:end].decode('ascii')
-        assert 'format binary_little_endian 1.0' in header
-        n=int(re.search(r'element vertex (\d+)',header).group(1))
-        assert n==cloud['vertices'] and len(raw)-end==15*n and digest(p)==cloud['sha256']
-        assert cloud['FPGA_measured'] is False and cloud['synthetic_noise_added'] is False
+    for item in json.loads((ROOT/'fpga/manifest.json').read_text(encoding='utf-8')):
+        p=ROOT/item['file']
+        assert p.exists() and digest(p)==item['sha256'],f'FPGA manifest mismatch: {item["file"]}'
+    removed=('examples/clouds/scene1_original.ply','examples/clouds/scene2_original.ply',
+             'fpga/preset-display/rtl/usb_model_staging.v',
+             'fpga/preset-display/rtl/preset_view_control.v',
+             'fpga/range-demo/rtl/two_cloud_demo_control.v','docs/media/pointcloud-reference.png')
+    for name in removed:assert not (ROOT/name).exists(),f'Removed demo file present: {name}'
     html=(ROOT/'docs/index.html').read_text(encoding='utf-8')
     assert all(x not in html for x in ['__INLINE__','__CSS__','__CORE__','__VIEWER__','__APP__'])
-    assert 'window.DEMO_PAYLOADS=' in html and 'value="noise1"' not in html
+    assert all(token not in html for token in ['window.DEMO_PAYLOADS','window.INLINE_DEMO','sampleSelect','loadSample('])
+    assert 'id="cloudEmpty"' in html and 'id="cloudLoading" class="loading" hidden' in html
     assert 'bp2f' in (ROOT/'docs/remote/index.html').read_text(encoding='utf-8').lower()
-    print(json.dumps({'passed':True,'files':len(files),'total_bytes':sum(p.stat().st_size for p in files),'largest_file_bytes':max(p.stat().st_size for p in files),'copied_sources':len(provenance['files']),'sample_vertices':[x['vertices'] for x in clouds],'local_links_checked':True,'hardware_accessed':False},ensure_ascii=False))
+    print(json.dumps({'passed':True,'files':len(files),'total_bytes':sum(p.stat().st_size for p in files),'largest_file_bytes':max(p.stat().st_size for p in files),'copied_sources':len(provenance['files']),'embedded_clouds':0,'local_links_checked':True,'hardware_accessed':False},ensure_ascii=False))
 if __name__=='__main__':main()

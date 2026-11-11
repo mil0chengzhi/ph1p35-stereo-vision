@@ -2,7 +2,9 @@
 
 ## 1 只看点云
 
-下载并解压仓库，用电脑Chrome或Edge双击`docs/index.html`。两组示例已内嵌，断网也可切换。页面上标记“电脑预处理”，与FPGA原生深度实验分别说明。
+下载并解压仓库，用电脑Chrome或Edge双击`docs/index.html`。页面默认没有点云，先点击“导入点云”选择自己的PLY、XYZ、CSV、JSON或项目ZIP；也可以从兼容数据源串口接收。没有内置示例或自动回放。
+
+已有浏览器存档时，可主动点击页脚“恢复上次会话”。未载入数据前，点云导出和存档按钮禁用。
 
 拖动旋转，右键平移，滚轮缩放；六个视角按钮改变观察方式。PLY导出保存XYZ和颜色，六视图保存截图，项目ZIP保存点云与观察参数。STL生成带底板的2.5D浮雕，打印前仍需在切片软件检查，它不会补出物体未被采集的背面。
 
@@ -23,7 +25,7 @@ python host/mobile-distance/bridge.py --host 0.0.0.0 --port 8796
 
 ## 3 HDMI与串口数据
 
-HDMI采集卡提供视频，网页可截图或录制。XYZ点云需从PLY文件或CLOUD/1数据接口取得。AP2F展示固件尚无完整点云回读，不会因接上采集卡就自动拥有XYZ导出。
+HDMI采集卡提供视频，网页可截图或录制。XYZ点云需从PLY文件或CLOUD/1数据接口取得。本仓库未提供完整板级CLOUD/1回读实现，不会因接上采集卡就自动拥有XYZ导出。
 
 摄像头和Web Serial依赖浏览器及安全上下文，通常在HTTPS或localhost使用，并由用户授权。能力以运行时检测为准；手机系统的经典蓝牙SPP不等于浏览器提供Web Bluetooth。参考[Chrome串口文档](https://developer.chrome.com/docs/capabilities/serial)及[MDN摄像头说明](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)。
 
@@ -34,6 +36,7 @@ python host/workbench/build.py
 python host/mobile-distance/build.py
 python tools/verify_package.py
 node tests/workbench.test.cjs
+node tests/workbench-app.test.cjs
 ```
 
 构建仅使用Python标准库，检查不连接硬件。RTL与MCU用途见各自目录的README，不能使用本仓库摘选替代完整板级工程进行下载。

@@ -21,4 +21,4 @@
 
 ## 发布材料本轮检查
 
-`tools/verify_package.py`检查本地链接、缺失文件、源码和样本哈希、文件大小及误入的运行文件。`tests/workbench.test.cjs`检查点云往返、CRC错误、ZIP完整性和浮雕封闭表面。浏览器检查在隔离实例中完成；模拟串口测试不升级为实体HC-05验收。
+`tools/verify_package.py`检查本地链接、缺失文件、保留源码的哈希以及已删除演示文件是否重新混入、文件大小及误入的运行文件。`tests/workbench.test.cjs`使用自建小型数据检查PLY往返、CRC错误、ZIP完整性和浮雕封闭表面；`tests/workbench-app.test.cjs`检查空白启动、用户导入、主动恢复及串口校验失败时不回退到示例。浏览器检查在隔离实例中完成；模拟串口测试不升级为实体HC-05验收。

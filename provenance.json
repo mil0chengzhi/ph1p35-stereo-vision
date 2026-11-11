@@ -210,30 +210,6 @@
       "reason": "UTF-8/LF normalization only"
     },
     {
-      "file": "fpga/range-demo/rtl/two_cloud_demo_control.v",
-      "source": "工程代码交付_20261104/01_源码工作区/V100_2_TwoCloud/project/rtl/two_cloud_demo_control.v",
-      "source_sha256": "ce3f6c2ce79746e9c04d79c928bb9e256a5d20816d4a36da78bfb3504326dc90",
-      "sha256": "ce3f6c2ce79746e9c04d79c928bb9e256a5d20816d4a36da78bfb3504326dc90",
-      "transformed": false,
-      "reason": "UTF-8/LF normalization only"
-    },
-    {
-      "file": "fpga/preset-display/rtl/usb_model_staging.v",
-      "source": "工程代码交付_20261104/01_源码工作区/V100_1_TwoCloud/project/rtl/usb_model_staging.v",
-      "source_sha256": "b83c3f4bd2950095a09cf33bf2e026579d988eab7bf5fe88c28c54f71ae0a9f7",
-      "sha256": "57a510b71e156eb76bcbc7d9a692a0c1bbcb2f6051b8a41ff007ca3fa942ab07",
-      "transformed": true,
-      "reason": "UTF-8/LF normalization only"
-    },
-    {
-      "file": "fpga/preset-display/rtl/preset_view_control.v",
-      "source": "工程代码交付_20261104/01_源码工作区/V100_1_TwoCloud/project/rtl/preset_view_control.v",
-      "source_sha256": "45893d690a98e23a8b2760589340130030cfc969a3cf3b9830d13b1e79fa735c",
-      "sha256": "45893d690a98e23a8b2760589340130030cfc969a3cf3b9830d13b1e79fa735c",
-      "transformed": false,
-      "reason": "UTF-8/LF normalization only"
-    },
-    {
       "file": "firmware/experimental-services/awb_decision.c",
       "source": "工程代码交付_20261104/01_源码工作区/V96_1_Monocular_HMI/project/firmware/shared_ae_awb/awb_decision.c",
       "source_sha256": "ff81cfecb13aea5932e381c739bb3c91d2e1039092a86e465d1f380fcc437e85",
@@ -314,36 +290,20 @@
       "reason": "UTF-8/LF normalization only"
     },
     {
-      "file": "examples/clouds/scene1_original.ply",
-      "source": "host_tools/stereo_workbench_20261104/dist/samples/scene1_original.ply",
-      "source_sha256": "b416774358dfed02382049c1df3d2363394bb6efbabf3dd8cbed6136f0a74379",
-      "sha256": "b416774358dfed02382049c1df3d2363394bb6efbabf3dd8cbed6136f0a74379",
-      "transformed": false,
-      "reason": "Unmodified binary copy"
-    },
-    {
-      "file": "examples/clouds/scene2_original.ply",
-      "source": "host_tools/stereo_workbench_20261104/dist/samples/scene2_original.ply",
-      "source_sha256": "361518cb921641f2c9eb2bf705b9323cf058b255c5cacb4edc4aedcd5d8cc61e",
-      "sha256": "361518cb921641f2c9eb2bf705b9323cf058b255c5cacb4edc4aedcd5d8cc61e",
-      "transformed": false,
-      "reason": "Unmodified binary copy"
-    },
-    {
       "file": "host/workbench/src/index.html",
       "source": "host_tools/stereo_workbench_20261104/src/index.html",
       "source_sha256": "c922191e9eb9c0cc621f664823b5b914d9e835fe17b9101c0b3028dbe47c44de",
-      "sha256": "20e7a216901e1398eea88e95274b715c4a50992dbdc89c3113c7ba4703522651",
+      "sha256": "6043205708dad58a76ad0177258de1440e475bf1da7ad3726dbd53404cea0536",
       "transformed": true,
-      "reason": "Public portable edition: two original samples, local download link, no site-specific service worker"
+      "reason": "Removed bundled cloud selection and payload placeholder; default empty state, explicit import/restore, data-dependent export controls"
     },
     {
       "file": "host/workbench/src/app.js",
       "source": "host_tools/stereo_workbench_20261104/src/app.js",
       "source_sha256": "0f62cc45c91cd4bf061e7a2f28712e876e724fa8616f52238d1a89afdb5ac3c2",
-      "sha256": "2c9fee8841fffe33c9463c3cc5fff8736835b82e5a5160d38e5faaacd1a41d54",
+      "sha256": "b7158d38f05e63ac5bd00edd32db8e5410f0daf198d2a1c592ba7de13f9c4f69",
       "transformed": true,
-      "reason": "Public portable edition: two original samples, local download link, no site-specific service worker"
+      "reason": "Removed preprocessed sample loader and automatic cache restore; retain explicit import, serial reception and user-requested restore"
     },
     {
       "file": "host/workbench/src/core.js",
@@ -429,17 +389,9 @@
       "file": "docs/media/workbench.png",
       "source": "project_management/技术报告_图文深化修订_20261104/制作与校验/配图/网页工作台原型.png",
       "source_sha256": "fc047f1cac15aa34c84602bb1aecc4b722e040efc4808b3fe8558015b751d3f2",
-      "sha256": "fc047f1cac15aa34c84602bb1aecc4b722e040efc4808b3fe8558015b751d3f2",
-      "transformed": false,
-      "reason": "Unmodified binary copy"
-    },
-    {
-      "file": "docs/media/pointcloud-reference.png",
-      "source": "project_management/TwoCloud_20261103/scene1_20261103_212818/raft_middlebury_v1/neural_cloud_front.png",
-      "source_sha256": "651c1bb21123b0b971c1af9be65b7a1413ce4dd7355ce148951d27fc5ed335e0",
-      "sha256": "651c1bb21123b0b971c1af9be65b7a1413ce4dd7355ce148951d27fc5ed335e0",
-      "transformed": false,
-      "reason": "Unmodified binary copy"
+      "sha256": "e24c7c439dbeb641a118113f0c9eab45d8d86253c6f83c7dfe38e15162b4e0fe",
+      "transformed": true,
+      "reason": "Replaced historical sample screenshot with a browser capture of the current empty workbench; no point cloud or hardware result shown"
     },
     {
       "file": "docs/media/poster-preview.png",
@@ -453,5 +405,6 @@
   "original_workspace_modified": false,
   "hardware_accessed": false,
   "full_FPGA_rebuild_performed": false,
-  "scope": "Curated public materials; not a complete board build"
+  "scope": "Curated public materials; not a complete board build",
+  "last_updated": "2026-11-11"
 }

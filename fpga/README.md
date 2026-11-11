@@ -6,10 +6,11 @@
 | --- | --- | --- |
 | native-depth/rtl | NB94归档 | hd_sgm1_matcher、Census窗口、stereo_dense_engine、深度和模型传输 |
 | native-display/rtl | AS95归档 | hd_cloud_projector、模型接收、DDR画布与完整扫描确认 |
-| range-demo/rtl | BP2F归档 | bluetooth_distance_control、UART、BCD/OSD与两模型按键状态 |
-| preset-display/rtl | AP2F归档 | 预存模型上传及观察控制 |
+| range-demo/rtl | BP2F归档 | bluetooth_distance_control、UART、BCD与距离OSD；不含预存双帧控制 |
 | [rtl-archive](rtl-archive/README.md) | 同一工程的PH1P35_FPGA_RTL交付包 | 按版本保留源目录结构、RTL与现有约束；校验和见归档内provenance.json |
 
 NB94匹配器是一条水平路径，配forward/reverse WTA互反，源码默认参数与顶层实参分别理解；不要因保留其他sgm文件而把本镜像标记为四路径。AS95观察器是原生720p正交画布版本，不是理想范文的透视实现。
+
+已移除预存模型上传、预存观察控制和双帧切换模块。距离OSD模块保留原有接口及来源标记，协议中的历史兼容字段不表示保留预存回放功能。
 
 来源、文件SHA及是否仅摘选见[manifest.json](manifest.json)。文件存在与功能启用是不同层级；完整运行条件见[版本表](../docs/guide/versions.md)。
